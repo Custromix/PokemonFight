@@ -42,8 +42,12 @@ namespace PokemonFight
             }
             
         }
-
-        /* Récupère les valeurs du formulaire de connection puis connecte la personne */
+        
+        /// <summary>
+        /// Récupère les valeurs du formulaire de connection puis connecte la personne
+        /// </summary>
+        /// <param name="sender">Type object</param>
+        /// <param name="e">Type EventArgs</param>
         private void btnLoginConnect_Click(object sender, EventArgs e)
         {
             try
@@ -71,15 +75,19 @@ namespace PokemonFight
             }
             
         }
-
-        /* Récupère les valeurs du formulaire de création de compte puis enregistre le nouveau compte */
+        
+        /// <summary>
+        /// Récupère les valeurs du formulaire de création de compte puis enregistre le nouveau compte
+        /// </summary>
+        /// <param name="sender">Type object</param>
+        /// <param name="e">Type EventArgs</param>
         private void btnRegister_Click(object sender, EventArgs e)
         {
             try
             {
                 User aUser = new User(this.inputNameRegister.Text, this.inputFirstnameRegister.Text, this.inputNicknameRegister.Text, this.inputMailRegister.Text, this.inputPasswordRegister.Text);
                 this.Authenticator.setController(aUser);
-                if (this.Authenticator.register())
+                if (this.Authenticator.register(this.inputSponsor.Text))
                 {
                     MessageBox.Show("Vous êtes bien inscrit veuillez vous connecter");
                 }
@@ -90,6 +98,11 @@ namespace PokemonFight
             }
         }
 
+        /// <summary>
+        /// AutoConnect sur le User 3
+        /// </summary>
+        /// <param name="sender">Type object</param>
+        /// <param name="e">Type EventArgs</param>
         private void autoConnect_Click(object sender, EventArgs e)
         {
             Connection dbConnect = Connection.GetDBConn();

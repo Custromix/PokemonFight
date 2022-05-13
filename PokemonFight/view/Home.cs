@@ -52,5 +52,13 @@ namespace PokemonFight
             appNotif.ShowDialog();
             this.Close();
         }
+
+        private void btnShop_Click(object sender, EventArgs e)
+        {
+            Shop appShop = new Shop(this.currentUser);
+            this.Hide();
+            appShop.ShowDialog();
+            this.Close();
+        }
     }
 }

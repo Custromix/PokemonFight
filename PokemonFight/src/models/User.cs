@@ -10,12 +10,16 @@ namespace PokemonFight
     public class User
     {
         private int idUser;
+        private int idUserBeSponsored;
         private string name;
         private string firstname;
         private MailAddress mail;
         private string nickname;
+        private string sponsorshipCode;
         private string password;
         private DateTime creationDate;
+        private int xp;
+        private int money;
         private User friends;
         private Card allCard;
         private Figthing allMatch;
@@ -33,11 +37,19 @@ namespace PokemonFight
             setMail(aMail);
             this.password = aPassword;
             this.creationDate = DateTime.Now;
+            this.xp = 0;
+            this.money = 500;
         }
 
         public int IdUser { 
             get => idUser; 
             set => idUser = value; 
+        }
+
+        public int IdUserBeSponsored
+        {
+            get => idUserBeSponsored;
+            set => idUserBeSponsored = value;
         }
 
         public string Name { 
@@ -88,6 +100,12 @@ namespace PokemonFight
             }
         }
 
+        public string SponsorshipCode
+        {
+            get => sponsorshipCode;
+            set => sponsorshipCode = this.Firstname.Substring(0,1) + this.CreationDate.Year + this.CreationDate.Month + this.CreationDate.Day + this.Name.Substring(0,1);
+        }
+
         public MailAddress Mail { 
             get => mail;
         }
@@ -114,6 +132,18 @@ namespace PokemonFight
         public DateTime CreationDate { 
             get => creationDate; 
             set => creationDate = DateTime.Now;
+        }
+
+        public int Xp
+        {
+            get => xp;
+            set => xp = value;
+        }
+
+        public int Money
+        {
+            get => money;
+            set => money = value;
         }
 
         public User Friends { 

@@ -40,10 +40,9 @@ namespace PokemonFight
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(99, 133);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPlay.Location = new System.Drawing.Point(74, 108);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(100, 28);
+            this.btnPlay.Size = new System.Drawing.Size(75, 23);
             this.btnPlay.TabIndex = 0;
             this.btnPlay.Text = "Jouer";
             this.btnPlay.UseVisualStyleBackColor = true;
@@ -51,30 +50,28 @@ namespace PokemonFight
             // 
             // btnShop
             // 
-            this.btnShop.Location = new System.Drawing.Point(99, 357);
-            this.btnShop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShop.Location = new System.Drawing.Point(74, 290);
             this.btnShop.Name = "btnShop";
-            this.btnShop.Size = new System.Drawing.Size(100, 28);
+            this.btnShop.Size = new System.Drawing.Size(75, 23);
             this.btnShop.TabIndex = 1;
             this.btnShop.Text = "Boutique";
             this.btnShop.UseVisualStyleBackColor = true;
+            this.btnShop.Click += new System.EventHandler(this.btnShop_Click);
             // 
             // btnDeck
             // 
-            this.btnDeck.Location = new System.Drawing.Point(99, 242);
-            this.btnDeck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeck.Location = new System.Drawing.Point(74, 197);
             this.btnDeck.Name = "btnDeck";
-            this.btnDeck.Size = new System.Drawing.Size(100, 28);
+            this.btnDeck.Size = new System.Drawing.Size(75, 23);
             this.btnDeck.TabIndex = 2;
             this.btnDeck.Text = "Deck";
             this.btnDeck.UseVisualStyleBackColor = true;
             // 
             // btnFriends
             // 
-            this.btnFriends.Location = new System.Drawing.Point(731, 41);
-            this.btnFriends.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFriends.Location = new System.Drawing.Point(548, 33);
             this.btnFriends.Name = "btnFriends";
-            this.btnFriends.Size = new System.Drawing.Size(100, 28);
+            this.btnFriends.Size = new System.Drawing.Size(75, 23);
             this.btnFriends.TabIndex = 3;
             this.btnFriends.Text = "Amis";
             this.btnFriends.UseVisualStyleBackColor = true;
@@ -82,10 +79,9 @@ namespace PokemonFight
             // 
             // btnAccount
             // 
-            this.btnAccount.Location = new System.Drawing.Point(911, 41);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAccount.Location = new System.Drawing.Point(683, 33);
             this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(100, 28);
+            this.btnAccount.Size = new System.Drawing.Size(75, 23);
             this.btnAccount.TabIndex = 4;
             this.btnAccount.Text = "Mon compte";
             this.btnAccount.UseVisualStyleBackColor = true;
@@ -93,10 +89,9 @@ namespace PokemonFight
             // 
             // btnNotif
             // 
-            this.btnNotif.Location = new System.Drawing.Point(547, 41);
-            this.btnNotif.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNotif.Location = new System.Drawing.Point(410, 33);
             this.btnNotif.Name = "btnNotif";
-            this.btnNotif.Size = new System.Drawing.Size(100, 28);
+            this.btnNotif.Size = new System.Drawing.Size(75, 23);
             this.btnNotif.TabIndex = 5;
             this.btnNotif.Text = "Notification";
             this.btnNotif.UseVisualStyleBackColor = true;
@@ -104,17 +99,18 @@ namespace PokemonFight
             // 
             // labelNickname
             // 
-            this.labelNickname.Location = new System.Drawing.Point(99, 47);
+            this.labelNickname.Location = new System.Drawing.Point(74, 38);
+            this.labelNickname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNickname.Name = "labelNickname";
-            this.labelNickname.Size = new System.Drawing.Size(100, 23);
+            this.labelNickname.Size = new System.Drawing.Size(75, 19);
             this.labelNickname.TabIndex = 6;
             this.labelNickname.Text = "label1";
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelNickname);
             this.Controls.Add(this.btnNotif);
             this.Controls.Add(this.btnAccount);
@@ -122,7 +118,6 @@ namespace PokemonFight
             this.Controls.Add(this.btnDeck);
             this.Controls.Add(this.btnShop);
             this.Controls.Add(this.btnPlay);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Home";
             this.Text = "Homecs";
             this.Load += new System.EventHandler(this.Home_Load);
