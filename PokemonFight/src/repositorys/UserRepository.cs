@@ -100,7 +100,6 @@ namespace PokemonFight.repository
             command.Parameters.Add("@creationDate", MySqlDbType.Date).Value = this.aUser.CreationDate;
             command.ExecuteNonQuery();
             this.dbConnect.getConnection().Close();
-
         }
         
         /// <summary>

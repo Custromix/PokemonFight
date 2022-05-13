@@ -66,6 +66,7 @@ namespace PokemonFight
             this.btnDeck.TabIndex = 2;
             this.btnDeck.Text = "Deck";
             this.btnDeck.UseVisualStyleBackColor = true;
+            this.btnDeck.Click += new System.EventHandler(this.btnDeck_Click);
             // 
             // btnFriends
             // 

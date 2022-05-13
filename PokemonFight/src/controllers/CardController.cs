@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using PokemonFight.repository;
 
 namespace PokemonFight.controllers
@@ -7,14 +9,17 @@ namespace PokemonFight.controllers
     {
         private CardRepository cardRepository;
         
-        public CardController()
+        public CardController(User _user)
         {
-            this.cardRepository = new CardRepository();
+            this.cardRepository = new CardRepository(_user);
         }
 
-        public List<Card> getAll()
+        public List<Card> buyCards()
         {
-            return this.cardRepository.selectAll();
+            List<Card> allCard = new List<Card>();
+            this.cardRepository.selectPokemonByRand(898);
+            
+            return allCard;
         }
     }
 }

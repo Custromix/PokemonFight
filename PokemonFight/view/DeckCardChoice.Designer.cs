@@ -2,7 +2,7 @@
 
 namespace PokemonFight
 {
-    partial class Shop
+    partial class DeckCardChoice
     {
         /// <summary>
         /// Required designer variable.
@@ -31,31 +31,11 @@ namespace PokemonFight
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBuyCard = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // btnBuyCard
-            // 
-            this.btnBuyCard.Location = new System.Drawing.Point(321, 309);
-            this.btnBuyCard.Name = "btnBuyCard";
-            this.btnBuyCard.Size = new System.Drawing.Size(149, 25);
-            this.btnBuyCard.TabIndex = 0;
-            this.btnBuyCard.Text = "Obtenir le pack";
-            this.btnBuyCard.UseVisualStyleBackColor = true;
-            this.btnBuyCard.Click += new System.EventHandler(this.btnBuyCard_Click);
-            // 
-            // Shop
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnBuyCard);
-            this.Name = "Shop";
-            this.Text = "Shop";
-            this.ResumeLayout(false);
+            this.Text = "DeckCardChoice";
         }
-
-        private System.Windows.Forms.Button btnBuyCard;
 
         #endregion
     }

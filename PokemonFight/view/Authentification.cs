@@ -110,7 +110,7 @@ namespace PokemonFight
             
             dbConnect.getConnection().Open();
             
-            MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE ID_USER = 3", dbConnect.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE ID_USER = 1", dbConnect.getConnection());
             MySqlDataReader reader = command.ExecuteReader();
             
             while (reader.Read())

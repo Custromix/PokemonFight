@@ -60,5 +60,13 @@ namespace PokemonFight
             appShop.ShowDialog();
             this.Close();
         }
+
+        private void btnDeck_Click(object sender, EventArgs e)
+        {
+            DeckView appDeck = new DeckView(this.currentUser);
+            this.Hide();
+            appDeck.ShowDialog();
+            this.Close();
+        }
     }
 }
