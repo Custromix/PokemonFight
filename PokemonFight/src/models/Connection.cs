@@ -17,7 +17,7 @@ namespace PokemonFight.models
 
         private Connection()
         {
-            this.dbConnect = new MySqlConnection("server=localhost;port=3306;user id=root; password=; database=pokemon_fight; SslMode=none");
+            this.dbConnect = new MySqlConnection("server=[YOUR_BDD_DESTINATION];port=[YOUR_PORT];user id=[YOUT_ID]; password=[YOUR_PASSWORD]; database=[YOUR_DATABASE]; SslMode=none");
             try
             {
                 this.dbConnect.Open();
