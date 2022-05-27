@@ -9,7 +9,6 @@ namespace PokemonFight
         private Deck aDeck;
         public DeckCardChoice(User currentUser, int idDeck)
         {
-            
             InitializeComponent();
         }
     }
