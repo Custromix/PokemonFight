@@ -27,11 +27,13 @@ namespace PokemonFight.controllers
             this.newUser = _user;
             this.crudUser = new UserRepository(_user);
         }
-
-        /* 
-         * Renvoie true si un utilisateur est enregistrer false sinon
-         * @return isRegister bool
-         */
+        
+        /// <summary>
+        /// Renvoie true si un utilisateur est enregistrer false sinon
+        /// </summary>
+        /// <param name="code">Type string</param>
+        /// <returns>var isRegister Type bool</returns>
+        /// <exception cref="Exception">Une erreur s'est produite lors de l'enregistrement du compte, veuillez réessayer !</exception>
         public bool register(string code)
         {
             bool isRegister;
@@ -63,11 +65,11 @@ namespace PokemonFight.controllers
             }
             return isRegister;
         }
-
-        /*
-         * Renvoie true si l'utilisateur est parvenu à se connecté et instancie l'utilisateur current false sinon
-         * @return isLoged bool
-         */
+        
+        /// <summary>
+        /// Renvoie true si l'utilisateur est parvenu à se connecté et instancie l'utilisateur current false sinon
+        /// </summary>
+        /// <returns>var isLoged Type bool</returns>
         public bool login()
         {
             bool isLoged;

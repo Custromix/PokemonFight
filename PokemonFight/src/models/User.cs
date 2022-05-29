@@ -110,7 +110,11 @@ namespace PokemonFight
             get => mail;
         }
 
-        /* Vérifie que l'entrée correspond à un format de mail et change la valeur de mail */
+        /// <summary>
+        /// Vérifie que l'entrée correspond à un format de mail et change la valeur de mail
+        /// </summary>
+        /// <param name="mail">Type string</param>
+        /// <exception cref="Exception">Le format du champs mail n'est pas bon !</exception>
         public void setMail(string mail)
         {
             try
