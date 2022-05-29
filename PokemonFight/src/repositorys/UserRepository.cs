@@ -23,7 +23,16 @@ namespace PokemonFight.repository
             this.aUser = _user;
             this.dbConnect = Connection.GetDBConn();
         }
-        
+
+        /// <summary>
+        /// Change l'utilisateur cible
+        /// </summary>
+        /// <param name="_user">Type User</param>
+        public void setUser(User _user)
+        {
+            this.aUser = _user;
+        }
+
         /// <summary>
         /// Requête permettant la selection d'un utilisateur
         /// </summary>
@@ -82,7 +91,7 @@ namespace PokemonFight.repository
         {
             this.dbConnect.getConnection().Open();
             MySqlCommand command = new MySqlCommand("INSERT INTO users (ID_LEVEL, NAME, FIRSTNAME, NICKNAME, MAIL, PASSWORD, CREATION_DATE)" +
-                " VALUES(0, @name, @firstname, @nickname, @mail, @password, @creationDate)", this.dbConnect.getConnection());
+                                                    " VALUES(0, @name, @firstname, @nickname, @mail, @password, @creationDate);", this.dbConnect.getConnection());
             command.Parameters.Add("@name", MySqlDbType.String).Value = this.aUser.Name;
             command.Parameters.Add("@firstname", MySqlDbType.String).Value = this.aUser.Firstname;
             command.Parameters.Add("@nickname", MySqlDbType.String).Value = this.aUser.Nickname;
@@ -278,6 +287,35 @@ namespace PokemonFight.repository
 
             this.dbConnect.getConnection().Close();
             return allFriends;
+        }
+
+        /// <summary>
+        /// Requête permettant ed récupérer l'id du parrain grâce à son code
+        /// </summary>
+        /// <param name="sponsorshipCode">Type string</param>
+        /// <returns>var idUser Type int</returns>
+        public int getUserBySponsorshipCode(string sponsorshipCode)
+        {
+            MessageBox.Show(sponsorshipCode.Substring(2, 4));
+            MessageBox.Show(sponsorshipCode.Substring(6, 2));
+            MessageBox.Show(sponsorshipCode.Substring(2, 4));
+            int idUser = -1;
+            MySqlCommand command = new MySqlCommand("SELECT * FROM users" +
+                                                    " WHERE FIRSTNAME.SUBSTRING(0,1) = @firstnameLetter" +
+                                                    " AND ID_USER = @id" +
+                                                    " AND CREATION_DATE = @date" +
+                                                    " AND NAME.SUBSTRING(0,1) = @nameLetter", this.dbConnect.getConnection());
+            command.Parameters.Add("@firstnameLetter", MySqlDbType.String).Value = sponsorshipCode.Substring(0,1);
+            command.Parameters.Add("@id", MySqlDbType.Int64).Value = int.Parse(sponsorshipCode.Substring(1,1));
+            command.Parameters.Add("@date", MySqlDbType.Date).Value = new DateTime(int.Parse(sponsorshipCode.Substring(2,4)), int.Parse(sponsorshipCode.Substring(6,2)),int.Parse(sponsorshipCode.Substring(8,2)));
+            command.Parameters.Add("@nameLetter", MySqlDbType.String).Value = sponsorshipCode.Substring(10,1);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                idUser = int.Parse(reader["ID_USER"].ToString());
+            }
+
+            return idUser;
         }
 
         public void updateSponsored()

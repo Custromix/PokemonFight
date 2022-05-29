@@ -6,14 +6,20 @@ using System.Threading.Tasks;
 
 namespace PokemonFight.models
 {
-    class Deck
+    public class Deck
     {
+        private User aUser;
         private int idDeck;
         private string name;
 
         public Deck()
         {
-            
+        }
+
+        public User AUser
+        {
+            get => aUser;
+            set => aUser = value;
         }
 
         public int IdDeck

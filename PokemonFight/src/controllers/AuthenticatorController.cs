@@ -32,7 +32,7 @@ namespace PokemonFight.controllers
          * Renvoie true si un utilisateur est enregistrer false sinon
          * @return isRegister bool
          */
-        public bool register()
+        public bool register(string code)
         {
             bool isRegister;
             if (this.authentification.isExist(this.newUser))
@@ -42,12 +42,22 @@ namespace PokemonFight.controllers
             {
                 try
                 {
+                    if (!string.IsNullOrEmpty(code))
+                    {
+                        int idSponsor = this.crudUser.getUserBySponsorshipCode(code);
+                        if (idSponsor != -1)
+                        {
+                            this.newUser.IdUserBeSponsored = idSponsor;
+                            this.crudUser.setUser(this.newUser);
+                        }
+                    }
                     this.crudUser.insert();
                     isRegister = true;
                 }
                 catch(Exception e)
                 {
                     isRegister = false;
+                    
                     throw new Exception(e.ToString());/*"Une erreur s'est produite lors de l'enregistrement du compte, veuillez réessayer !"*/
                 }
             }

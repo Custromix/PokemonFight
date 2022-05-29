@@ -16,12 +16,12 @@ namespace PokemonFight.security
         {
             this.dbConnect = Connection.GetDBConn();
         }
-
-        /* 
-         * Return true si le nom d'utilisateur ou mail existe false sinon
-         * @param _user User
-         * @return isExist bool
-         */
+        
+        /// <summary>
+        /// Retourne true si le nom d'utilisateur ou mail existe false sinon
+        /// </summary>
+        /// <param name="_user">Type User</param>
+        /// <returns>var isExist type bool</returns>
         public bool isExist(User _user)
         {
             bool isExist = true;
@@ -33,6 +33,7 @@ namespace PokemonFight.security
             command.Parameters.Add("@pseudonym", MySqlDbType.String).Value = _user.Nickname;
             MySqlDataReader reader = command.ExecuteReader();
 
+            
             while (reader.Read())
             {
                 result++;
@@ -45,12 +46,12 @@ namespace PokemonFight.security
             this.dbConnect.getConnection().Close();
             return isExist;
         }
-
-        /* 
-         * Recupère l'utilisateur avec une requête sql select par son mail
-         * @param _user User
-         * @return aUser User
-         */
+        
+        /// <summary>
+        /// Recupère l'utilisateur avec une requête sql select par son mail
+        /// </summary>
+        /// <param name="_user">User</param>
+        /// <returns>var aUser type User</returns>
         public User getPotentialLogUser(User _user)
         {
             User aUser = new User();

@@ -49,6 +49,8 @@ namespace PokemonFight
             this.inputNicknameRegister = new System.Windows.Forms.TextBox();
             this.btnSwitch = new System.Windows.Forms.Button();
             this.autoConnect = new System.Windows.Forms.Button();
+            this.labelSponsorship = new System.Windows.Forms.Label();
+            this.inputSponsor = new System.Windows.Forms.TextBox();
             labelIdLogin = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             this.panelLogin.SuspendLayout();
@@ -83,7 +85,7 @@ namespace PokemonFight
             this.panelLogin.Controls.Add(this.inputPasswordLogin);
             this.panelLogin.Controls.Add(this.inputIdLogin);
             this.panelLogin.Location = new System.Drawing.Point(329, 151);
-            this.panelLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLogin.Margin = new System.Windows.Forms.Padding(4);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(329, 197);
             this.panelLogin.TabIndex = 0;
@@ -101,7 +103,7 @@ namespace PokemonFight
             // btnLoginConnect
             // 
             this.btnLoginConnect.Location = new System.Drawing.Point(136, 154);
-            this.btnLoginConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoginConnect.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoginConnect.Name = "btnLoginConnect";
             this.btnLoginConnect.Size = new System.Drawing.Size(137, 28);
             this.btnLoginConnect.TabIndex = 3;
@@ -112,7 +114,7 @@ namespace PokemonFight
             // inputPasswordLogin
             // 
             this.inputPasswordLogin.Location = new System.Drawing.Point(140, 98);
-            this.inputPasswordLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inputPasswordLogin.Margin = new System.Windows.Forms.Padding(4);
             this.inputPasswordLogin.Name = "inputPasswordLogin";
             this.inputPasswordLogin.Size = new System.Drawing.Size(132, 22);
             this.inputPasswordLogin.TabIndex = 1;
@@ -120,13 +122,15 @@ namespace PokemonFight
             // inputIdLogin
             // 
             this.inputIdLogin.Location = new System.Drawing.Point(140, 37);
-            this.inputIdLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inputIdLogin.Margin = new System.Windows.Forms.Padding(4);
             this.inputIdLogin.Name = "inputIdLogin";
             this.inputIdLogin.Size = new System.Drawing.Size(132, 22);
             this.inputIdLogin.TabIndex = 0;
             // 
             // panelRegister
             // 
+            this.panelRegister.Controls.Add(this.inputSponsor);
+            this.panelRegister.Controls.Add(this.labelSponsorship);
             this.panelRegister.Controls.Add(this.label3);
             this.panelRegister.Controls.Add(this.inputMailRegister);
             this.panelRegister.Controls.Add(this.labelFirstname);
@@ -139,7 +143,7 @@ namespace PokemonFight
             this.panelRegister.Controls.Add(this.inputPasswordRegister);
             this.panelRegister.Controls.Add(this.inputNicknameRegister);
             this.panelRegister.Location = new System.Drawing.Point(329, 151);
-            this.panelRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelRegister.Margin = new System.Windows.Forms.Padding(4);
             this.panelRegister.Name = "panelRegister";
             this.panelRegister.Size = new System.Drawing.Size(496, 393);
             this.panelRegister.TabIndex = 6;
@@ -158,7 +162,7 @@ namespace PokemonFight
             // inputMailRegister
             // 
             this.inputMailRegister.Location = new System.Drawing.Point(140, 160);
-            this.inputMailRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inputMailRegister.Margin = new System.Windows.Forms.Padding(4);
             this.inputMailRegister.Name = "inputMailRegister";
             this.inputMailRegister.Size = new System.Drawing.Size(132, 22);
             this.inputMailRegister.TabIndex = 10;
@@ -176,7 +180,7 @@ namespace PokemonFight
             // inputFirstnameRegister
             // 
             this.inputFirstnameRegister.Location = new System.Drawing.Point(140, 110);
-            this.inputFirstnameRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inputFirstnameRegister.Margin = new System.Windows.Forms.Padding(4);
             this.inputFirstnameRegister.Name = "inputFirstnameRegister";
             this.inputFirstnameRegister.Size = new System.Drawing.Size(132, 22);
             this.inputFirstnameRegister.TabIndex = 8;
@@ -194,7 +198,7 @@ namespace PokemonFight
             // inputNameRegister
             // 
             this.inputNameRegister.Location = new System.Drawing.Point(140, 58);
-            this.inputNameRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inputNameRegister.Margin = new System.Windows.Forms.Padding(4);
             this.inputNameRegister.Name = "inputNameRegister";
             this.inputNameRegister.Size = new System.Drawing.Size(132, 22);
             this.inputNameRegister.TabIndex = 6;
@@ -212,7 +216,7 @@ namespace PokemonFight
             // btnRegister
             // 
             this.btnRegister.Location = new System.Drawing.Point(136, 300);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(137, 28);
             this.btnRegister.TabIndex = 3;
@@ -223,7 +227,7 @@ namespace PokemonFight
             // inputPasswordRegister
             // 
             this.inputPasswordRegister.Location = new System.Drawing.Point(140, 254);
-            this.inputPasswordRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inputPasswordRegister.Margin = new System.Windows.Forms.Padding(4);
             this.inputPasswordRegister.Name = "inputPasswordRegister";
             this.inputPasswordRegister.Size = new System.Drawing.Size(132, 22);
             this.inputPasswordRegister.TabIndex = 1;
@@ -231,7 +235,7 @@ namespace PokemonFight
             // inputNicknameRegister
             // 
             this.inputNicknameRegister.Location = new System.Drawing.Point(140, 210);
-            this.inputNicknameRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inputNicknameRegister.Margin = new System.Windows.Forms.Padding(4);
             this.inputNicknameRegister.Name = "inputNicknameRegister";
             this.inputNicknameRegister.Size = new System.Drawing.Size(132, 22);
             this.inputNicknameRegister.TabIndex = 0;
@@ -239,7 +243,7 @@ namespace PokemonFight
             // btnSwitch
             // 
             this.btnSwitch.Location = new System.Drawing.Point(852, 305);
-            this.btnSwitch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSwitch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSwitch.Name = "btnSwitch";
             this.btnSwitch.Size = new System.Drawing.Size(160, 28);
             this.btnSwitch.TabIndex = 5;
@@ -257,6 +261,21 @@ namespace PokemonFight
             this.autoConnect.UseVisualStyleBackColor = true;
             this.autoConnect.Click += new System.EventHandler(this.autoConnect_Click);
             // 
+            // labelSponsorship
+            // 
+            this.labelSponsorship.Location = new System.Drawing.Point(336, 130);
+            this.labelSponsorship.Name = "labelSponsorship";
+            this.labelSponsorship.Size = new System.Drawing.Size(131, 23);
+            this.labelSponsorship.TabIndex = 12;
+            this.labelSponsorship.Text = "Code de parainage";
+            // 
+            // inputSponsor
+            // 
+            this.inputSponsor.Location = new System.Drawing.Point(336, 166);
+            this.inputSponsor.Name = "inputSponsor";
+            this.inputSponsor.Size = new System.Drawing.Size(131, 22);
+            this.inputSponsor.TabIndex = 13;
+            // 
             // Authentification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -266,7 +285,7 @@ namespace PokemonFight
             this.Controls.Add(this.btnSwitch);
             this.Controls.Add(this.panelRegister);
             this.Controls.Add(this.panelLogin);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Authentification";
             this.Text = "Form1";
             this.panelLogin.ResumeLayout(false);
@@ -275,6 +294,10 @@ namespace PokemonFight
             this.panelRegister.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.TextBox inputSponsor;
+
+        private System.Windows.Forms.Label labelSponsorship;
 
         private System.Windows.Forms.Button autoConnect;
 
