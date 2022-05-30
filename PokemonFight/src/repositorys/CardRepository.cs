@@ -60,7 +60,6 @@ namespace PokemonFight.repository
             HttpResponseMessage response = client.GetAsync(id.ToString()).Result;
             if (response.IsSuccessStatusCode)
             {
-                MessageBox.Show("caca");
                 object Objects = response.Content.ReadAsAsync<IEnumerable<DataObject>>().Result;  //Make sure to add a reference to System.Net.Http.Formatting.dll
                 
             }
