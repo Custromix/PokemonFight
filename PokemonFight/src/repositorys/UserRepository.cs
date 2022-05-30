@@ -87,7 +87,7 @@ namespace PokemonFight.repository
         /// <summary>
         /// Requête permettant l'insertion d'un user dans une base de donnée 
         /// </summary>
-        public void insert()
+        public User insert()
         {
             this.dbConnect.getConnection().Open();
             MySqlCommand commandInsert = new MySqlCommand("INSERT INTO users (ID_LEVEL, NAME, FIRSTNAME, NICKNAME, MAIL, PASSWORD, CREATION_DATE)" +
@@ -99,18 +99,34 @@ namespace PokemonFight.repository
             commandInsert.Parameters.Add("@password", MySqlDbType.String).Value = BC.HashPassword(this.aUser.Password);
             commandInsert.Parameters.Add("@creationDate", MySqlDbType.Date).Value = this.aUser.CreationDate;
             commandInsert.ExecuteNonQuery();
+            
+            User lastUser = new User();
+            MySqlCommand command = new MySqlCommand("SELECT * from users"  +
+                                                    " ORDER BY ID_USER DESC" +
+                                                    " LIMIT 1", this.dbConnect.getConnection());
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                lastUser.IdUser = int.Parse(reader["ID_USER"].ToString());
+                lastUser.setName(reader["NAME"].ToString());
+                lastUser.setFirstname(reader["FIRSTNAME"].ToString());
+                lastUser.setMail(reader["MAIL"].ToString());
+                lastUser.Password = reader["PASSWORD"].ToString();
+                lastUser.CreationDate = DateTime.Parse(reader["CREATION_DATE"].ToString());
+            }
             this.dbConnect.getConnection().Close();
+            return lastUser;
         }
         
         /// <summary>
         /// Requête permettant l'ajout du code de sponsor dans la bdd
         /// </summary>
-        public void updateSponsorCode()
+        public void updateSponsorCode(User lastUser)
         {
             this.dbConnect.getConnection().Open();
             MySqlCommand commandUpdate = new MySqlCommand("UPDATE users " +
                                                           "SET SPONSORSHIP_CODE = @sponsorCode", this.dbConnect.getConnection());
-            commandUpdate.Parameters.Add("@sponsorCode", MySqlDbType.String).Value = this.aUser.SponsorshipCode;
+            commandUpdate.Parameters.Add("@sponsorCode", MySqlDbType.String).Value = lastUser.SponsorshipCode;
             commandUpdate.ExecuteNonQuery();
             this.dbConnect.getConnection().Close();
         }
@@ -329,11 +345,6 @@ namespace PokemonFight.repository
             }
 
             return idUser;
-        }
-
-        public void updateSponsored()
-        {
-            
         }
 
     }

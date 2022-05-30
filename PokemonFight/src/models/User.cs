@@ -107,7 +107,7 @@ namespace PokemonFight
         public string SponsorshipCode
         {
             get => sponsorshipCode;
-            set => sponsorshipCode = this.Firstname.Substring(0,1) + this.CreationDate.Year + this.CreationDate.Month + this.CreationDate.Day + this.Name.Substring(0,1);
+            set => sponsorshipCode = this.IdUser + this.Firstname.Substring(0,1) + this.CreationDate.Year + this.CreationDate.Month + this.CreationDate.Day + this.Name.Substring(0,1);
         }
 
         public MailAddress Mail { 

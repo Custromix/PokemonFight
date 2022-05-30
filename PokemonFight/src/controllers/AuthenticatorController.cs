@@ -53,13 +53,13 @@ namespace PokemonFight.controllers
                             this.crudUser.setUser(this.newUser);
                         }
                     }
-                    this.crudUser.insert();
+                    User lastUser = this.crudUser.insert();
+                    this.crudUser.updateSponsorCode(lastUser);
                     isRegister = true;
                 }
                 catch(Exception e)
                 {
                     isRegister = false;
-                    
                     throw new Exception(e.ToString());/*"Une erreur s'est produite lors de l'enregistrement du compte, veuillez réessayer !"*/
                 }
             }
