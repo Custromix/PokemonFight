@@ -90,18 +90,31 @@ namespace PokemonFight.repository
         public void insert()
         {
             this.dbConnect.getConnection().Open();
-            MySqlCommand command = new MySqlCommand("INSERT INTO users (ID_LEVEL, NAME, FIRSTNAME, NICKNAME, MAIL, PASSWORD, CREATION_DATE)" +
+            MySqlCommand commandInsert = new MySqlCommand("INSERT INTO users (ID_LEVEL, NAME, FIRSTNAME, NICKNAME, MAIL, PASSWORD, CREATION_DATE)" +
                                                     " VALUES(0, @name, @firstname, @nickname, @mail, @password, @creationDate);", this.dbConnect.getConnection());
-            command.Parameters.Add("@name", MySqlDbType.String).Value = this.aUser.Name;
-            command.Parameters.Add("@firstname", MySqlDbType.String).Value = this.aUser.Firstname;
-            command.Parameters.Add("@nickname", MySqlDbType.String).Value = this.aUser.Nickname;
-            command.Parameters.Add("@mail", MySqlDbType.String).Value = this.aUser.Mail;
-            command.Parameters.Add("@password", MySqlDbType.String).Value = BC.HashPassword(this.aUser.Password);
-            command.Parameters.Add("@creationDate", MySqlDbType.Date).Value = this.aUser.CreationDate;
-            command.ExecuteNonQuery();
+            commandInsert.Parameters.Add("@name", MySqlDbType.String).Value = this.aUser.Name;
+            commandInsert.Parameters.Add("@firstname", MySqlDbType.String).Value = this.aUser.Firstname;
+            commandInsert.Parameters.Add("@nickname", MySqlDbType.String).Value = this.aUser.Nickname;
+            commandInsert.Parameters.Add("@mail", MySqlDbType.String).Value = this.aUser.Mail;
+            commandInsert.Parameters.Add("@password", MySqlDbType.String).Value = BC.HashPassword(this.aUser.Password);
+            commandInsert.Parameters.Add("@creationDate", MySqlDbType.Date).Value = this.aUser.CreationDate;
+            commandInsert.ExecuteNonQuery();
             this.dbConnect.getConnection().Close();
         }
         
+        /// <summary>
+        /// Requête permettant l'ajout du code de sponsor dans la bdd
+        /// </summary>
+        public void updateSponsorCode()
+        {
+            this.dbConnect.getConnection().Open();
+            MySqlCommand commandUpdate = new MySqlCommand("UPDATE users " +
+                                                          "SET SPONSORSHIP_CODE = @sponsorCode", this.dbConnect.getConnection());
+            commandUpdate.Parameters.Add("@sponsorCode", MySqlDbType.String).Value = this.aUser.SponsorshipCode;
+            commandUpdate.ExecuteNonQuery();
+            this.dbConnect.getConnection().Close();
+        }
+
         /// <summary>
         /// Requête permettant la modification d'un utilisateur dans une base de donnée
         /// </summary>

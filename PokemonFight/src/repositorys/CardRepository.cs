@@ -61,7 +61,6 @@ namespace PokemonFight.repository
             if (response.IsSuccessStatusCode)
             {
                 object Objects = response.Content.ReadAsAsync<IEnumerable<DataObject>>().Result;  //Make sure to add a reference to System.Net.Http.Formatting.dll
-                
             }
             else
             {

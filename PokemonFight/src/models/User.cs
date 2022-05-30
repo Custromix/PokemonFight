@@ -21,8 +21,8 @@ namespace PokemonFight
         private int xp;
         private int money;
         private User friends;
-        private Card allCard;
-        private Figthing allMatch;
+        private List<Card> allCard;
+        private List<Figthing> allMatch;
 
         public User()
         {
@@ -39,6 +39,8 @@ namespace PokemonFight
             this.creationDate = DateTime.Now;
             this.xp = 0;
             this.money = 500;
+            this.allCard = new List<Card>();
+            this.allMatch = new List<Figthing>();
         }
 
         public int IdUser { 
@@ -155,16 +157,34 @@ namespace PokemonFight
             set => friends = value; 
         }
 
-        public Card AllCard { 
-            get => allCard; 
-            set => allCard = value; 
+        public List<Card> AllCard
+        {
+            get => allCard;
         }
 
-        public Figthing AllMatch
+        public void addCard(Card aCard)
+        {
+            this.allCard.Add(aCard);
+        }
+
+        public void removeCard(Card aCardRemoved)
+        {
+            if (this.allCard.Contains(aCardRemoved))
+            {
+                this.allCard.Remove(aCardRemoved);
+            }
+        }
+
+        public List<Figthing> AllMatch
         {
             get => allMatch;
-            set => allMatch = value;
         }
-
+        
+        public void addMatch(Figthing afight)
+        {
+            this.allMatch.Add(afight);
+        }
+        
+        
     }
 }

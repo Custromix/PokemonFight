@@ -94,6 +94,10 @@ namespace PokemonFight.controllers
             return isLoged;
         }
 
+        /// <summary>
+        /// Retourne l'utilisateur courant
+        /// </summary>
+        /// <returns>var userConnected Type User</returns>
         public User getUser()
         {
             return this.userConnected;
