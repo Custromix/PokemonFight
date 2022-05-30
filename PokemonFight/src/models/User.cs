@@ -27,6 +27,8 @@ namespace PokemonFight
         public User()
         {
             this.creationDate = DateTime.Now;
+            this.allCard = new List<Card>();
+            this.allMatch = new List<Figthing>();
         }
 
         public User(string aName, string aFirsntame, string aNickname, string aMail, string aPassword)
@@ -157,9 +159,9 @@ namespace PokemonFight
             set => friends = value; 
         }
 
-        public List<Card> AllCard
+        public List<Card> getAllCard()
         {
-            get => allCard;
+            return this.allCard;
         }
 
         public void addCard(Card aCard)
