@@ -20,5 +20,13 @@ namespace PokemonFight
         {
             this.cardController.buyCards();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Home appHome = new Home(this.currentUser);
+            this.Hide();
+            appHome.ShowDialog();
+            this.Close();
+        }
     }
 }

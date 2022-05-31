@@ -31,7 +31,9 @@ namespace PokemonFight
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Button btnBack;
             this.btnBuyCard = new System.Windows.Forms.Button();
+            btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBuyCard
@@ -44,11 +46,22 @@ namespace PokemonFight
             this.btnBuyCard.UseVisualStyleBackColor = true;
             this.btnBuyCard.Click += new System.EventHandler(this.btnBuyCard_Click);
             // 
+            // btnBack
+            // 
+            btnBack.Location = new System.Drawing.Point(23, 400);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new System.Drawing.Size(75, 23);
+            btnBack.TabIndex = 1;
+            btnBack.Text = "Retour";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // Shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(btnBack);
             this.Controls.Add(this.btnBuyCard);
             this.Name = "Shop";
             this.Text = "Shop";
