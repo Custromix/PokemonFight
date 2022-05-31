@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 29 mai 2022 à 18:50
+-- Généré le : mar. 31 mai 2022 à 10:18
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `be_friend`;
 CREATE TABLE IF NOT EXISTS `be_friend` (
-  `ID_USER` int(2) NOT NULL,
-  `ID_USER_1` int(2) NOT NULL,
+  `ID_EMITTER` int(2) NOT NULL,
+  `ID_RECEIVER` int(2) NOT NULL,
   `IS_FRIEND` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`ID_USER`,`ID_USER_1`),
-  KEY `FK_BE_FRIEND_USERS1` (`ID_USER_1`)
+  PRIMARY KEY (`ID_EMITTER`,`ID_RECEIVER`),
+  KEY `FK_BE_FRIEND_USERS1` (`ID_RECEIVER`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -85,7 +85,10 @@ CREATE TABLE IF NOT EXISTS `deck` (
 
 INSERT INTO `deck` (`ID_USER`, `ID_DECK`, `NAME`) VALUES
 (1, 1, 'Nouveau Deck'),
-(1, 2, 'Nouveau Deck');
+(1, 2, 'Nouveau Deck'),
+(1, 5, 'Nouveau Deck'),
+(1, 4, 'Nouveau Deck'),
+(1, 3, 'Nouveau Deck');
 
 -- --------------------------------------------------------
 
@@ -155,14 +158,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`ID_USER`),
   KEY `FK_USERS_USERS` (`ID_USER_BE_SPONSORED`),
   KEY `FK_USERS_LEVEL` (`ID_LEVEL`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`ID_USER`, `ID_USER_BE_SPONSORED`, `ID_LEVEL`, `NAME`, `FIRSTNAME`, `NICKNAME`, `SPONSORSHIP_CODE`, `MAIL`, `PASSWORD`, `CREATION_DATE`, `XP`) VALUES
-(1, NULL, 0, 'SABI', 'Kader', 'custromix', NULL, 'test@gmail.com', '$2a$11$6xtCr5PRl1eXI.Gk6gtrWe5QntGufKb1I0qQkgw2YFGiTCseEoYmm', '2022-05-13 00:00:00', NULL);
+(1, NULL, 0, 'SABI', 'Kader', 'custromix', 'K120220513S', 'test@gmail.com', '$2a$11$6xtCr5PRl1eXI.Gk6gtrWe5QntGufKb1I0qQkgw2YFGiTCseEoYmm', '2022-05-13 00:00:00', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
