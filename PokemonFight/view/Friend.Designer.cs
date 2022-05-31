@@ -34,7 +34,6 @@ namespace PokemonFight
             this.labelFriends = new System.Windows.Forms.Label();
             this.labelSearchFriend = new System.Windows.Forms.Label();
             this.panelFriendList = new System.Windows.Forms.Panel();
-            this.btnSponsore = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSwitchAddFriend = new System.Windows.Forms.Button();
@@ -65,7 +64,6 @@ namespace PokemonFight
             // 
             // panelFriendList
             // 
-            this.panelFriendList.Controls.Add(this.btnSponsore);
             this.panelFriendList.Controls.Add(this.btnHome);
             this.panelFriendList.Controls.Add(this.label1);
             this.panelFriendList.Controls.Add(this.btnSwitchAddFriend);
@@ -73,16 +71,6 @@ namespace PokemonFight
             this.panelFriendList.Name = "panelFriendList";
             this.panelFriendList.Size = new System.Drawing.Size(533, 426);
             this.panelFriendList.TabIndex = 0;
-            // 
-            // btnSponsore
-            // 
-            this.btnSponsore.Location = new System.Drawing.Point(376, 119);
-            this.btnSponsore.Name = "btnSponsore";
-            this.btnSponsore.Size = new System.Drawing.Size(75, 23);
-            this.btnSponsore.TabIndex = 4;
-            this.btnSponsore.Text = "Sponsoriser";
-            this.btnSponsore.UseVisualStyleBackColor = true;
-            this.btnSponsore.Click += new System.EventHandler(this.btnSponsore_Click);
             // 
             // btnHome
             // 
@@ -174,8 +162,6 @@ namespace PokemonFight
             this.panelAddFriend.PerformLayout();
             this.ResumeLayout(false);
         }
-
-        private System.Windows.Forms.Button btnSponsore;
 
         private System.Windows.Forms.Button btnHome;
 

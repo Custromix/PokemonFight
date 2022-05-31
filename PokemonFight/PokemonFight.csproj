@@ -209,6 +209,9 @@
     <EmbeddedResource Include="view\Authentification.resx">
       <DependentUpon>Authentification.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\DeckCardChoice.resx">
+      <DependentUpon>DeckCardChoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\DeckView.resx">
       <DependentUpon>DeckView.cs</DependentUpon>
     </EmbeddedResource>

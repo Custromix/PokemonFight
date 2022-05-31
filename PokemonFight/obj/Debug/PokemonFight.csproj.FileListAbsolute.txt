@@ -44,3 +44,4 @@ D:\Professional\WindowsForm\C#\PokemonFight\PokemonFight\PokemonFight\bin\Debug\
 D:\Professional\WindowsForm\C#\PokemonFight\PokemonFight\PokemonFight\bin\Debug\Newtonsoft.Json.xml
 D:\Professional\WindowsForm\C#\PokemonFight\PokemonFight\PokemonFight\bin\Debug\System.Net.Http.Formatting.xml
 D:\Professional\WindowsForm\C#\PokemonFight\PokemonFight\PokemonFight\obj\Debug\PokemonFight.DeckView.resources
+D:\Professional\WindowsForm\C#\PokemonFight\PokemonFight\PokemonFight\obj\Debug\PokemonFight.DeckCardChoice.resources

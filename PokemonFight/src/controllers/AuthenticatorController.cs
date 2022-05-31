@@ -53,7 +53,9 @@ namespace PokemonFight.controllers
                             this.crudUser.setUser(this.newUser);
                         }
                     }
+
                     User lastUser = this.crudUser.insert();
+                    lastUser.setSponsorshipCode();
                     this.crudUser.updateSponsorCode(lastUser);
                     isRegister = true;
                 }

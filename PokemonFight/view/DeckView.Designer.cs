@@ -33,6 +33,7 @@ namespace PokemonFight
         {
             this.btnAddDeck = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddDeck
@@ -54,18 +55,30 @@ namespace PokemonFight
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(29, 390);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 2;
+            this.btnBack.Text = "Retour";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // DeckView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAddDeck);
             this.Name = "DeckView";
             this.Text = "DeckView";
             this.ResumeLayout(false);
-
         }
+
+        private System.Windows.Forms.Button btnBack;
 
         private System.Windows.Forms.Button btnAddDeck;
 

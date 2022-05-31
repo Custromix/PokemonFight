@@ -90,12 +90,13 @@ namespace PokemonFight.repository
         public User insert()
         {
             this.dbConnect.getConnection().Open();
-            MySqlCommand commandInsert = new MySqlCommand("INSERT INTO users (ID_LEVEL, NAME, FIRSTNAME, NICKNAME, MAIL, PASSWORD, CREATION_DATE)" +
-                                                    " VALUES(0, @name, @firstname, @nickname, @mail, @password, @creationDate);", this.dbConnect.getConnection());
+            MySqlCommand commandInsert = new MySqlCommand("INSERT INTO users (ID_LEVEL, NAME, FIRSTNAME, NICKNAME, ID_USER_BE_SPONSORED, MAIL, PASSWORD, CREATION_DATE)" +
+                                                    " VALUES(0, @name, @firstname, @nickname, @idBeSponsored, @mail, @password, @creationDate);", this.dbConnect.getConnection());
             commandInsert.Parameters.Add("@name", MySqlDbType.String).Value = this.aUser.Name;
             commandInsert.Parameters.Add("@firstname", MySqlDbType.String).Value = this.aUser.Firstname;
             commandInsert.Parameters.Add("@nickname", MySqlDbType.String).Value = this.aUser.Nickname;
             commandInsert.Parameters.Add("@mail", MySqlDbType.String).Value = this.aUser.Mail;
+            commandInsert.Parameters.Add("@idBeSponsored", MySqlDbType.Int32).Value = this.aUser.IdUserBeSponsored != 0 ? this.aUser.IdUserBeSponsored.ToString() : null;
             commandInsert.Parameters.Add("@password", MySqlDbType.String).Value = BC.HashPassword(this.aUser.Password);
             commandInsert.Parameters.Add("@creationDate", MySqlDbType.Date).Value = this.aUser.CreationDate;
             commandInsert.ExecuteNonQuery();
@@ -125,8 +126,10 @@ namespace PokemonFight.repository
         {
             this.dbConnect.getConnection().Open();
             MySqlCommand commandUpdate = new MySqlCommand("UPDATE users " +
-                                                          "SET SPONSORSHIP_CODE = @sponsorCode", this.dbConnect.getConnection());
+                                                          "SET SPONSORSHIP_CODE = @sponsorCode" +
+                                                          " WHERE ID_USER = @idUser", this.dbConnect.getConnection());
             commandUpdate.Parameters.Add("@sponsorCode", MySqlDbType.String).Value = lastUser.SponsorshipCode;
+            commandUpdate.Parameters.Add("@idUser", MySqlDbType.String).Value = lastUser.IdUser;
             commandUpdate.ExecuteNonQuery();
             this.dbConnect.getConnection().Close();
         }
@@ -325,25 +328,18 @@ namespace PokemonFight.repository
         /// <returns>var idUser Type int</returns>
         public int getUserBySponsorshipCode(string sponsorshipCode)
         {
-            MessageBox.Show(sponsorshipCode.Substring(2, 4));
-            MessageBox.Show(sponsorshipCode.Substring(6, 2));
-            MessageBox.Show(sponsorshipCode.Substring(2, 4));
             int idUser = -1;
+            this.dbConnect.getConnection().Open();
             MySqlCommand command = new MySqlCommand("SELECT * FROM users" +
-                                                    " WHERE FIRSTNAME.SUBSTRING(0,1) = @firstnameLetter" +
-                                                    " AND ID_USER = @id" +
-                                                    " AND CREATION_DATE = @date" +
-                                                    " AND NAME.SUBSTRING(0,1) = @nameLetter", this.dbConnect.getConnection());
-            command.Parameters.Add("@firstnameLetter", MySqlDbType.String).Value = sponsorshipCode.Substring(0,1);
-            command.Parameters.Add("@id", MySqlDbType.Int64).Value = int.Parse(sponsorshipCode.Substring(1,1));
-            command.Parameters.Add("@date", MySqlDbType.Date).Value = new DateTime(int.Parse(sponsorshipCode.Substring(2,4)), int.Parse(sponsorshipCode.Substring(6,2)),int.Parse(sponsorshipCode.Substring(8,2)));
-            command.Parameters.Add("@nameLetter", MySqlDbType.String).Value = sponsorshipCode.Substring(10,1);
+                                                    " WHERE SPONSORSHIP_CODE = @sponsorCode" , this.dbConnect.getConnection());
+            command.Parameters.Add("@sponsorCode", MySqlDbType.String).Value = sponsorshipCode;
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 idUser = int.Parse(reader["ID_USER"].ToString());
             }
-
+            this.dbConnect.getConnection().Close();
+            
             return idUser;
         }
 
